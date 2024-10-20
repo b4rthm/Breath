@@ -5,56 +5,68 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
-    <!-- Circle animation view -->
-    <com.example.breath.CircularProgressView
-        android:id="@+id/circularProgressView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Breath"
+        android:textSize="32dp"
+        android:layout_marginBottom="30dp"
+        />
 
     <!-- Input fields for each phase -->
     <EditText
         android:id="@+id/breathInTime"
-        android:hint="Breathe In (seconds)"
+        android:hint="Breathe In"
         android:inputType="number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"/>
 
     <EditText
         android:id="@+id/holdTime"
-        android:hint="Hold (seconds)"
+        android:hint="Hold"
         android:inputType="number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp"/>
 
     <EditText
         android:id="@+id/breathOutTime"
-        android:hint="Breathe Out (seconds)"
+        android:hint="Breathe Out"
         android:inputType="number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp"/>
 
     <EditText
         android:id="@+id/secondHoldTime"
-        android:hint="Hold After Out (seconds)"
+        android:hint="Hold After Out"
         android:inputType="number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_width="128dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp"/>
 
     <!-- Start button -->
     <Button
         android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start"/>
+        android:text="Start"
+        android:layout_marginTop="30dp"/>
 
-    <!-- Stop button (Initially hidden) -->
-    <Button
-        android:id="@+id/stopButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stop"
-        android:visibility="gone" />
+
+    <!-- Circle animation view -->
+    <com.example.breath.CircularProgressView
+        android:id="@+id/circularProgressView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        />
+
 
     <!-- Current phase label -->
     <TextView
@@ -63,7 +75,8 @@
         android:layout_height="wrap_content"
         android:text="Ready"
         android:textSize="24sp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="30dp"
+        android:visibility="gone"/>
 
     <!-- Countdown timer label -->
     <TextView
@@ -72,5 +85,15 @@
         android:layout_height="wrap_content"
         android:text="0"
         android:textSize="32sp"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:visibility="gone"/>
+
+    <!-- Stop button (Initially hidden) -->
+    <Button
+        android:id="@+id/stopButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop"
+        android:layout_marginTop="30dp"
+        android:visibility="gone" />
 </LinearLayout>

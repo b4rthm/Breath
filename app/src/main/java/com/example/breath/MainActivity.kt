@@ -76,6 +76,9 @@ class MainActivity : AppCompatActivity() {
         secondHoldInput.visibility = View.GONE
         startButton.visibility = View.GONE
         stopButton.visibility = View.VISIBLE // Show stop button
+        circularProgressView.visibility = View.VISIBLE
+        currentPhaseLabel.visibility = View.VISIBLE
+        countdownTimer.visibility = View.VISIBLE
 
         // Start with the first phase
         currentPhase = 0
@@ -118,6 +121,10 @@ class MainActivity : AppCompatActivity() {
         secondHoldInput.visibility = View.VISIBLE
         startButton.visibility = View.VISIBLE
         stopButton.visibility = View.GONE // Hide stop button
+        circularProgressView.visibility = View.INVISIBLE
+        currentPhaseLabel.visibility = View.GONE
+        countdownTimer.visibility = View.GONE
+
     }
 
     override fun onDestroy() {
