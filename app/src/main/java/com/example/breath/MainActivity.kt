@@ -1,4 +1,4 @@
-package com.example.breathingapp
+package com.example.breath
 
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var currentPhaseLabel: TextView
     private lateinit var startButton: Button
     private lateinit var stopButton: Button
+
     private lateinit var circularProgressView: CircularProgressView
 
     private var breathInTime: Int = 0
@@ -44,23 +45,17 @@ class MainActivity : AppCompatActivity() {
         countdownTimer = findViewById(R.id.countdownTimer)
         currentPhaseLabel = findViewById(R.id.currentPhaseLabel)
         startButton = findViewById(R.id.startButton)
-        circularProgressView = findViewById(R.id.circularProgressView)
-
-        // Initialize stop button
         stopButton = findViewById(R.id.stopButton)
+        circularProgressView = findViewById(R.id.circularProgressView)
 
         // Start button click listener
         startButton.setOnClickListener {
-            stopButton.visibility = View.VISIBLE
             startBreathingCycle()
         }
 
         // Stop button click listener
         stopButton.setOnClickListener {
-            timer?.cancel()  // Cancel the current timer
-            countdownTimer.text = "Stopped"
-            currentPhaseLabel.text = "Ready"
-            stopButton.visibility = View.GONE  // Hide the stop button
+            stopBreathingCycle()
         }
     }
 
@@ -74,6 +69,14 @@ class MainActivity : AppCompatActivity() {
         // Store the times in an array (converted to milliseconds)
         times = intArrayOf(breathInTime * 1000, holdTime * 1000, breathOutTime * 1000, secondHoldTime * 1000)
 
+        // Hide input fields and start button
+        breathInInput.visibility = View.GONE
+        holdInput.visibility = View.GONE
+        breathOutInput.visibility = View.GONE
+        secondHoldInput.visibility = View.GONE
+        startButton.visibility = View.GONE
+        stopButton.visibility = View.VISIBLE // Show stop button
+
         // Start with the first phase
         currentPhase = 0
         startPhase()
@@ -84,7 +87,7 @@ class MainActivity : AppCompatActivity() {
         currentPhaseLabel.text = phases[currentPhase]
 
         // Create a CountDownTimer for the current phase
-        timer = object : CountDownTimer(times[currentPhase].toLong(), 1000) {
+        timer = object : CountDownTimer(times[currentPhase].toLong(), 100) {
             override fun onTick(millisUntilFinished: Long) {
                 val progress = (1 - millisUntilFinished / times[currentPhase].toFloat()) * 100
                 countdownTimer.text = (millisUntilFinished / 1000).toString()
@@ -97,6 +100,24 @@ class MainActivity : AppCompatActivity() {
                 startPhase()
             }
         }.start()
+    }
+
+    private fun stopBreathingCycle() {
+        // Cancel the current timer
+        timer?.cancel()
+
+        // Reset the progress and labels
+        circularProgressView.setProgress(0f)
+        countdownTimer.text = "0"
+        currentPhaseLabel.text = "Ready"
+
+        // Show input fields and start button again
+        breathInInput.visibility = View.VISIBLE
+        holdInput.visibility = View.VISIBLE
+        breathOutInput.visibility = View.VISIBLE
+        secondHoldInput.visibility = View.VISIBLE
+        startButton.visibility = View.VISIBLE
+        stopButton.visibility = View.GONE // Hide stop button
     }
 
     override fun onDestroy() {

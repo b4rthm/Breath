@@ -1,4 +1,4 @@
-package com.example.breathingapp
+package com.example.breath
 
 import android.content.Context
 import android.graphics.Canvas
