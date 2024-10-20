@@ -6,6 +6,7 @@
     android:gravity="center">
 
     <TextView
+        android:id="@+id/breathTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Breath"
@@ -58,16 +59,6 @@
         android:layout_marginTop="30dp"/>
 
 
-    <!-- Circle animation view -->
-    <com.example.breath.CircularProgressView
-        android:id="@+id/circularProgressView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center"
-        android:visibility="invisible"
-        />
-
-
     <!-- Current phase label -->
     <TextView
         android:id="@+id/currentPhaseLabel"
@@ -87,6 +78,15 @@
         android:textSize="32sp"
         android:layout_marginTop="10dp"
         android:visibility="gone"/>
+
+    <!-- Circle animation view -->
+    <com.example.breath.CircularProgressView
+        android:id="@+id/circularProgressView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+        />
 
     <!-- Stop button (Initially hidden) -->
     <Button

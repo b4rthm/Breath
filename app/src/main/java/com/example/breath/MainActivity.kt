@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var currentPhaseLabel: TextView
     private lateinit var startButton: Button
     private lateinit var stopButton: Button
+    private lateinit var breathTitle: TextView
+
 
     private lateinit var circularProgressView: CircularProgressView
 
@@ -47,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         startButton = findViewById(R.id.startButton)
         stopButton = findViewById(R.id.stopButton)
         circularProgressView = findViewById(R.id.circularProgressView)
+        breathTitle = findViewById(R.id.breathTitle)
 
         // Start button click listener
         startButton.setOnClickListener {
@@ -79,6 +82,7 @@ class MainActivity : AppCompatActivity() {
         circularProgressView.visibility = View.VISIBLE
         currentPhaseLabel.visibility = View.VISIBLE
         countdownTimer.visibility = View.VISIBLE
+        breathTitle.visibility = View.GONE
 
         // Start with the first phase
         currentPhase = 0
@@ -124,6 +128,7 @@ class MainActivity : AppCompatActivity() {
         circularProgressView.visibility = View.INVISIBLE
         currentPhaseLabel.visibility = View.GONE
         countdownTimer.visibility = View.GONE
+        breathTitle.visibility = View.VISIBLE
 
     }
 
