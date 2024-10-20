@@ -1,0 +1,76 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <!-- Input fields for each phase -->
+    <EditText
+        android:id="@+id/breathInTime"
+        android:hint="Breathe In (seconds)"
+        android:inputType="number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/holdTime"
+        android:hint="Hold (seconds)"
+        android:inputType="number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/breathOutTime"
+        android:hint="Breathe Out (seconds)"
+        android:inputType="number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/secondHoldTime"
+        android:hint="Hold After Out (seconds)"
+        android:inputType="number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!-- Start button -->
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"/>
+
+    <!-- Current phase label -->
+    <TextView
+        android:id="@+id/currentPhaseLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ready"
+        android:textSize="24sp"
+        android:layout_marginTop="30dp"/>
+
+    <!-- Countdown timer label -->
+    <TextView
+        android:id="@+id/countdownTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="32sp"
+        android:layout_marginTop="10dp"/>
+
+    <!-- Circle animation view -->
+    <com.example.breathingapp.CircularProgressView
+        android:id="@+id/circularProgressView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/stopButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"/> <!-- Initially hidden -->
+</LinearLayout>
