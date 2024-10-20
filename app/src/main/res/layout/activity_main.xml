@@ -66,7 +66,6 @@
         android:layout_height="wrap_content"
         android:text="Ready"
         android:textSize="24sp"
-        android:layout_marginTop="30dp"
         android:visibility="gone"/>
 
     <!-- Countdown timer label -->
@@ -77,6 +76,7 @@
         android:text="0"
         android:textSize="32sp"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
         android:visibility="gone"/>
 
     <!-- Circle animation view -->
